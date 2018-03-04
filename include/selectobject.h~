@@ -1,0 +1,34 @@
+#ifndef SELECTOBJECT_H
+#define SELECTOBJECT_H
+
+#include <iostream>
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
+using namespace cv;
+using namespace std;
+
+/* maximum number of objects to be tracked */
+#define MAX_OBJECTS 1
+
+typedef struct params 
+{
+	CvPoint loc1[MAX_OBJECTS];
+	CvPoint loc2[MAX_OBJECTS];
+	IplImage* objects[MAX_OBJECTS];
+	char* win_name;
+	IplImage* orig_img;
+	IplImage* cur_img;
+	int n;
+} params;
+
+class selectObject
+{
+public:
+    selectObject();
+	int get_regions(IplImage* frame,CvRect** regions);
+private:
+};
+
+#endif // SELECTOBJECT_H
